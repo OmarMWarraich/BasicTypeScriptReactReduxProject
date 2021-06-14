@@ -37,7 +37,7 @@ export function userReducer(
     action: UserAction
 ): UserState {
     switch (action.type) {
-        case 'user/LOGIN':
+        case "user/LOGIN":
             return { username: action.payload };
         case 'user/LOGOUT':
             return { username: null };
