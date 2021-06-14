@@ -1,3 +1,14 @@
+// make a function that creates typed actions for us with generic type extending string. payload extends any
+
+export function typedAction<T extends string>(type: T): { type: T };
+export function typedAction<T extends string, P extends any>(
+    type: T,
+    payload: P
+    ): { type: T; payload: P };
+export function typedAction(type: string, payload?: any) {
+    return { type, payload };
+}
+
 // Define UserState type and a couple action creators: login and logout.
 
 type UserState = {
@@ -24,7 +35,7 @@ type UserAction = ReturnType<typeof login | typeof logout>;
 export function userReducer(
     state = initialState,
     action: UserAction
-) : UserState {
+): UserState {
     switch (action.type) {
         case 'user/LOGIN':
             return { username: action.payload };
