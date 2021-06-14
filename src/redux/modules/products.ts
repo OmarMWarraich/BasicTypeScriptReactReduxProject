@@ -1,6 +1,6 @@
 // TODO: We should move typedAction elsewhere since it's shared
 
-import { typedAction } from './users';
+import { typedAction } from '../helpers';
 import { Dispatch, AnyAction } from 'redux';
 
 type Product = {
@@ -61,7 +61,7 @@ export function productsReducer(
     action: ProductAction
 ): ProductState {
   switch (action.type) {
-      case 'products/ADD_PRODUCT':
+      case 'products/ADD_PRODUCTS':
           return {
               ...state,
               products: [...state.products, ...action.payload]
